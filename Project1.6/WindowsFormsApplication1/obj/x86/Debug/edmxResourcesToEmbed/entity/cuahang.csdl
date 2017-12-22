@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="cuahangModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="cuahangEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="chitietdondathangs" EntityType="cuahangModel.chitietdondathang" />
+    <EntitySet Name="chitiethoadons" EntityType="cuahangModel.chitiethoadon" />
+    <EntitySet Name="dondathangs" EntityType="cuahangModel.dondathang" />
+    <EntitySet Name="hoadons" EntityType="cuahangModel.hoadon" />
+    <EntitySet Name="sanphams" EntityType="cuahangModel.sanpham" />
+    <AssociationSet Name="FK__chitietdo__madon__1FCDBCEB" Association="cuahangModel.FK__chitietdo__madon__1FCDBCEB">
+      <End Role="dondathang" EntitySet="dondathangs" />
+      <End Role="chitietdondathang" EntitySet="chitietdondathangs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__chitietdonda__id__20C1E124" Association="cuahangModel.FK__chitietdonda__id__20C1E124">
+      <End Role="sanpham" EntitySet="sanphams" />
+      <End Role="chitietdondathang" EntitySet="chitietdondathangs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__chitietho__mahoa__1BFD2C07" Association="cuahangModel.FK__chitietho__mahoa__1BFD2C07">
+      <End Role="hoadon" EntitySet="hoadons" />
+      <End Role="chitiethoadon" EntitySet="chitiethoadons" />
+    </AssociationSet>
+    <AssociationSet Name="FK__chitiethoado__id__1CF15040" Association="cuahangModel.FK__chitiethoado__id__1CF15040">
+      <End Role="sanpham" EntitySet="sanphams" />
+      <End Role="chitiethoadon" EntitySet="chitiethoadons" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="chitietdondathang">
+    <Key>
+      <PropertyRef Name="stt" />
+      <PropertyRef Name="madondathang" />
+    </Key>
+    <Property Name="stt" Type="Int32" Nullable="false" />
+    <Property Name="madondathang" Type="Int32" Nullable="false" />
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="soluongdat" Type="Int32" />
+    <Property Name="soluongnhan" Type="Int32" />
+    <Property Name="gianhap" Type="Decimal" Precision="10" Scale="0" />
+    <Property Name="trangthai" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="lido" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="tinhtrang" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="dondathang" Relationship="cuahangModel.FK__chitietdo__madon__1FCDBCEB" FromRole="chitietdondathang" ToRole="dondathang" />
+    <NavigationProperty Name="sanpham" Relationship="cuahangModel.FK__chitietdonda__id__20C1E124" FromRole="chitietdondathang" ToRole="sanpham" />
+  </EntityType>
+  <EntityType Name="chitiethoadon">
+    <Key>
+      <PropertyRef Name="stt" />
+      <PropertyRef Name="mahoadon" />
+    </Key>
+    <Property Name="stt" Type="Int32" Nullable="false" />
+    <Property Name="mahoadon" Type="Int32" Nullable="false" />
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="giaban" Type="Decimal" Precision="10" Scale="0" />
+    <Property Name="soluongmua" Type="Int32" />
+    <NavigationProperty Name="hoadon" Relationship="cuahangModel.FK__chitietho__mahoa__1BFD2C07" FromRole="chitiethoadon" ToRole="hoadon" />
+    <NavigationProperty Name="sanpham" Relationship="cuahangModel.FK__chitiethoado__id__1CF15040" FromRole="chitiethoadon" ToRole="sanpham" />
+  </EntityType>
+  <EntityType Name="dondathang">
+    <Key>
+      <PropertyRef Name="madondathang" />
+    </Key>
+    <Property Name="madondathang" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ngaydathang" Type="DateTime" />
+    <Property Name="nhacungcap" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="chitietdondathangs" Relationship="cuahangModel.FK__chitietdo__madon__1FCDBCEB" FromRole="dondathang" ToRole="chitietdondathang" />
+  </EntityType>
+  <EntityType Name="hoadon">
+    <Key>
+      <PropertyRef Name="mahoadon" />
+    </Key>
+    <Property Name="mahoadon" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ngayban" Type="DateTime" />
+    <NavigationProperty Name="chitiethoadons" Relationship="cuahangModel.FK__chitietho__mahoa__1BFD2C07" FromRole="hoadon" ToRole="chitiethoadon" />
+  </EntityType>
+  <EntityType Name="sanpham">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="masp" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="tensp" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="size" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+    <Property Name="hang" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="giamgia" Type="Double" />
+    <Property Name="soluongtonkho" Type="Int32" />
+    <Property Name="giaban" Type="Decimal" Precision="10" Scale="0" />
+    <Property Name="ngaynhap" Type="DateTime" />
+    <NavigationProperty Name="chitietdondathangs" Relationship="cuahangModel.FK__chitietdonda__id__20C1E124" FromRole="sanpham" ToRole="chitietdondathang" />
+    <NavigationProperty Name="chitiethoadons" Relationship="cuahangModel.FK__chitiethoado__id__1CF15040" FromRole="sanpham" ToRole="chitiethoadon" />
+  </EntityType>
+  <Association Name="FK__chitietdo__madon__1FCDBCEB">
+    <End Role="dondathang" Type="cuahangModel.dondathang" Multiplicity="1" />
+    <End Role="chitietdondathang" Type="cuahangModel.chitietdondathang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dondathang">
+        <PropertyRef Name="madondathang" />
+      </Principal>
+      <Dependent Role="chitietdondathang">
+        <PropertyRef Name="madondathang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__chitietdonda__id__20C1E124">
+    <End Role="sanpham" Type="cuahangModel.sanpham" Multiplicity="1" />
+    <End Role="chitietdondathang" Type="cuahangModel.chitietdondathang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sanpham">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="chitietdondathang">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__chitietho__mahoa__1BFD2C07">
+    <End Role="hoadon" Type="cuahangModel.hoadon" Multiplicity="1" />
+    <End Role="chitiethoadon" Type="cuahangModel.chitiethoadon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hoadon">
+        <PropertyRef Name="mahoadon" />
+      </Principal>
+      <Dependent Role="chitiethoadon">
+        <PropertyRef Name="mahoadon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__chitiethoado__id__1CF15040">
+    <End Role="sanpham" Type="cuahangModel.sanpham" Multiplicity="1" />
+    <End Role="chitiethoadon" Type="cuahangModel.chitiethoadon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sanpham">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="chitiethoadon">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

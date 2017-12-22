@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="cuahangModelStoreContainer" CdmEntityContainer="cuahangEntities">
+    <EntitySetMapping Name="chitietdondathangs">
+      <EntityTypeMapping TypeName="cuahangModel.chitietdondathang">
+        <MappingFragment StoreEntitySet="chitietdondathang">
+          <ScalarProperty Name="stt" ColumnName="stt" />
+          <ScalarProperty Name="madondathang" ColumnName="madondathang" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="soluongdat" ColumnName="soluongdat" />
+          <ScalarProperty Name="soluongnhan" ColumnName="soluongnhan" />
+          <ScalarProperty Name="gianhap" ColumnName="gianhap" />
+          <ScalarProperty Name="trangthai" ColumnName="trangthai" />
+          <ScalarProperty Name="lido" ColumnName="lido" />
+          <ScalarProperty Name="tinhtrang" ColumnName="tinhtrang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="chitiethoadons">
+      <EntityTypeMapping TypeName="cuahangModel.chitiethoadon">
+        <MappingFragment StoreEntitySet="chitiethoadon">
+          <ScalarProperty Name="stt" ColumnName="stt" />
+          <ScalarProperty Name="mahoadon" ColumnName="mahoadon" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="giaban" ColumnName="giaban" />
+          <ScalarProperty Name="soluongmua" ColumnName="soluongmua" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dondathangs">
+      <EntityTypeMapping TypeName="cuahangModel.dondathang">
+        <MappingFragment StoreEntitySet="dondathang">
+          <ScalarProperty Name="madondathang" ColumnName="madondathang" />
+          <ScalarProperty Name="ngaydathang" ColumnName="ngaydathang" />
+          <ScalarProperty Name="nhacungcap" ColumnName="nhacungcap" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hoadons">
+      <EntityTypeMapping TypeName="cuahangModel.hoadon">
+        <MappingFragment StoreEntitySet="hoadon">
+          <ScalarProperty Name="mahoadon" ColumnName="mahoadon" />
+          <ScalarProperty Name="ngayban" ColumnName="ngayban" />
+          <ScalarProperty Name="tienkhachdua" ColumnName="tienkhachdua" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sanphams">
+      <EntityTypeMapping TypeName="cuahangModel.sanpham">
+        <MappingFragment StoreEntitySet="sanpham">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="masp" ColumnName="masp" />
+          <ScalarProperty Name="tensp" ColumnName="tensp" />
+          <ScalarProperty Name="size" ColumnName="size" />
+          <ScalarProperty Name="hang" ColumnName="hang" />
+          <ScalarProperty Name="giamgia" ColumnName="giamgia" />
+          <ScalarProperty Name="soluongtonkho" ColumnName="soluongtonkho" />
+          <ScalarProperty Name="giaban" ColumnName="giaban" />
+          <ScalarProperty Name="ngaynhap" ColumnName="ngaynhap" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
